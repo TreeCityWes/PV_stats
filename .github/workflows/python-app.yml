@@ -2,8 +2,11 @@ name: Update Token Stats
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour (adjust the schedule as needed)
-  workflow_dispatch:  # Allows manual triggering from the GitHub Actions tab
+    - cron: '0 * * * *'  # Runs every hour
+  workflow_dispatch:
+
+permissions:
+  contents: write  # This gives the workflow permission to push changes to the repo
 
 jobs:
   update-token-stats:
@@ -11,19 +14,19 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2  # Checks out your repository code
+      uses: actions/checkout@v2
 
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'    # Specify your Python version
+        python-version: '3.x'
 
     - name: Install dependencies
       run: |
-        pip install requests  # Install the required dependencies
+        pip install requests
 
     - name: Run Python script to fetch token stats
-      run: python3 pvstats.py  # Replace 'pvstats.py' with your Python script
+      run: python3 pvstats.py
 
     - name: Commit CSV file
       run: |
