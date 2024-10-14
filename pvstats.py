@@ -40,7 +40,7 @@ def write_to_csv(token_data, filename="token_info.csv"):
         ])
 
 # Example usage
-pair_address = "5px3a5LWR6CmiYX3ktpNnGYiEypfDdemRd74GDYbsJ2H"
+pair_address = "89gyMPfqRZHcU9oPpQfTQLuuj98zYt1ckyf5QrxKatc7"
 token_data = get_token_info(pair_address)
 
 if token_data:
